@@ -49,8 +49,6 @@ table {
 
 body{
     display: flex;
-	/* justify-content: center;
-	align-items: center; */
     height: 100vh;
     width: 100vw;
 	overflow: hidden;
@@ -59,12 +57,14 @@ body{
 nav{
     background-color: #9e9d9d;
 	font-family: "Raleway", sans-serif;
-	flex: 1;
+	/* flex: 1; */
+	min-width: 180px;
 }
 
 main{
 	background-color: #f1f1f1;
-	flex: 4;
+	min-width: 480px;
+	box-sizing: border-box;
 }
 
 nav ul{
@@ -74,7 +74,7 @@ nav ul{
 	justify-content: center;
 	height: 100vh;
 	margin: 0;
-	padding: 0 1rem;
+	padding: 0 1.2rem;
 }
 
 nav ul li{
@@ -116,11 +116,11 @@ main header h1{
 	color: #545353;
 }
 
-main header p{
+.subtitle{
 	padding: 0.1em 0;
-	width: 50%;
+	width: 100%;
 	border-bottom: 2px solid black;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	color: #545353;
 }
 
@@ -137,11 +137,72 @@ figure{
 	display: flex;
 	align-items: center;
 	flex: 1;
-	padding-right: 5em;
+	margin: auto;
+	padding-right: 2em;
 }
 
 figure img{
 	border-radius: 50%;
 	height: 50%;
 	display: block;
+}
+
+@media (max-width: 1170px){
+	figure img{
+		height: 40%;
+	}
+	main header h1{
+		font-size: 2.5em;
+	}
+	main{
+		padding: 0 3em;
+	}
+}
+
+@media (max-width:960px){
+	figure{
+		display: none;
+	}
+
+	main{
+		justify-content: flex-start;
+		align-items: center;
+		padding: 5em 3em;
+	}
+}
+
+@media (max-width:660px){
+	nav{
+		min-width: auto;
+	}
+}
+
+@media (max-width: 620px){
+	body{
+		overflow: auto;
+		flex-direction: column;
+		width: 100%;
+		height: auto;
+		/* margin: 0 auto; */
+	}
+
+	main{
+		padding: 2em 0.5em;
+		min-width: auto;
+	}
+
+	nav{
+		min-width: inherit;
+	}
+	nav ul{
+		height: auto;
+		margin: 0.1rem auto;
+		font-size: 1em;
+		/* height: 0vh; */
+		transition: all 500ms ease;
+	}
+	nav ul li{
+		margin: 1rem auto;
+		font-size: 0.8em;
+	}
 }
